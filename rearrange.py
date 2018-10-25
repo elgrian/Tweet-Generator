@@ -1,15 +1,16 @@
 import random
 import sys
-
+#Takes words given as an argument in CL, which then randomises the words
 def random_word():
-    word_list = sys.argv[1:]
+    word_list = sys.argv[1:] 
     random_word_list = []
+    
     for i in word_list:
         rand_index = random.randint(0, len(word_list) -1)
         list = word_list[rand_index]
         random_word_list.append(list)
-        str1 = ' '.join(random_word_list)
-    return str1
+        string = ' '.join(random_word_list)
+    return string
     
     
     
