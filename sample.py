@@ -17,7 +17,8 @@
 # Then replacing the original keys value with the new "percent float".  
 # Which keeps them still in a dictionary, which we can now find a way to call on those words based on their "percent float"
 
-import re, random, sys
+import re, random, sys, numpy as np
+
 
 frequency = {}
 first_list = []
@@ -39,28 +40,73 @@ new_dictionary = dict(dictionary)
 # print(dict(dictionary))
 # print(zipped)
 
-
+# dict_word = new_dictionary.keys()
 for i in new_dictionary:
     new_dictionary[i] = (new_dictionary[i] / len(match_pattern))
+    # print(new_dictionary[i])
     dict.update(new_dictionary)
-    
+     
     
 #     >>> books = {}
 # >>> books['book'] = 3       
 # >>> books['book'] -= 1   
 # >>> books   
 # {'book': 2} 
-# print(random.choices(list(new_dictionary)))
-print(new_dictionary)
+# number_thing = 0
+# eight = 8
+# while number_thing < eight:
 
+new_dict_words = list(new_dictionary.keys())
+new_dict_weight = list(new_dictionary.values())
+
+# print(random.choices(list(new_dictionary)), list(int(new_dictionary[i])), k = 8)
+#     number_thing += 1
+    
+    
+# print(new_dictionary)
+# choice_list = np.random.choice(new_dict_words, 8, replace = True, p = new_dict_weight)
+# print(choice_list)
+
+# weighted_random_by_dct(new_dictionary)
+def frequency_test():
+    i = 0
+    blue = 0
+    fish = 0
+    red = 0
+    two = 0
+    one = 0
+
+    while i <= 10000:
+        selection = choice_list = np.random.choice(new_dict_words, 1, replace = True, p = new_dict_weight)
+        if 'blue' in selection:
+            blue += 1
+            i += 1
+        elif 'fish' in selection:
+            fish += 1
+            i += 1
+        elif 'red' in selection:
+            red += 1
+            i += 1
+        elif 'two' in selection:
+            two += 1
+            i += 1
+        elif 'one' in selection:
+            one += 1
+            i += 1
+            
+    print("Blue => " + str(blue) + "\n fish => " + str(fish) + "\n red => " + str(red) + "\n two => " + str(two) + "\n one => " + str(one))
+
+frequency_test()
+# print(new_dictionary)
+# 
 # print (new_dictionary)
-
+# 
 # print(len(text_string))
 # 
 # print(89 / 75150)
 # 
 # print(len(new_dictionary))
-
+# 
 # print(new_dictionary)
 
 
