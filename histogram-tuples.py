@@ -16,8 +16,12 @@ def run_histogram():
     #Adds number of times word was repeated to second array
     for word in match_pattern:
         second_list.append(int(frequency[word]))    
-    zipped = zip(first_list, second_list)
-    print(list(set(zipped)))
+
+    
+    print(str(first_list), str(second_list))
+    
+
+    
     
 if __name__ == '__main__':
     run_histogram()
