@@ -1,5 +1,6 @@
 import re
 import sys
+import string
 import random
 # file = str(sys.argv[1])
 # text = str(sys.argv[1])
@@ -53,7 +54,7 @@ def list_of_tuples(text):
     for word in match_pattern:
         second_list.append(int(frequency[word]))
 
-    # zipped = zip(first_list, second_list)
+    zipped = zip(first_list, second_list)
     # 
     # print(list(set(zipped)))
     
@@ -92,20 +93,22 @@ def dictionary_histogram(text):
             return str(dict_histo[word])
         else:
             return str(0)
-    unique_word_dict(dict_histo)
     
-    random_sum = random.randint(0, sum(dict_histo.values()))
+    # print(str(dict_histo))
     
-    accumulator = 0
-    for key, value in dict_histo.items():
-        accumulator += values
-        if accumulator >= rand_sum: return key
-    else:
-        continue
-    
-    
-    
-    
+    def dict_probability(dict_histo):
+        # random_sum = random.randint(0, sum(dict_histo.values()))
+        dict_sum = random.randrange(dict_histo)
+        accum = 0
+        for key, value in dict_histo.items():
+            accum += value
+            if accumulator >= dict_sum:
+                return key
+            else:
+                continue
+    print(str(list(dict_probability)))
+        # print(list(dict_histo(text)))
+        
 #------------End of Dictionary-----------------
 
 if __name__ == '__main__':
