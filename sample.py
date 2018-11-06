@@ -1,14 +1,4 @@
-# import tuples, re, sys
-# words = ["one", "fish", "two", "fish", "red", "fish", "blue", "fish"]
-# frequency = [1, 4, 1, 4, 1, 4, 1, 4]
-# denominator = int(len(words))
-# frequency_percent = []
-# for i in frequency:
-#     frequency_percent.append((i / denominator))
-# 
-# print(str((frequency_percent)))
-# 
-# 
+
 
 
 
@@ -17,7 +7,7 @@
 # Then replacing the original keys value with the new "percent float".  
 # Which keeps them still in a dictionary, which we can now find a way to call on those words based on their "percent float"
 
-import re, random, sys, numpy as np
+import re, random, sys, numpy
 
 
 frequency = {}
@@ -41,33 +31,24 @@ new_dictionary = dict(dictionary)
 # print(zipped)
 
 # dict_word = new_dictionary.keys()
+#This cycles through the dictionary, taking the keys value "[i]" and dividing the value by the length of the original text file
 for i in new_dictionary:
     new_dictionary[i] = (new_dictionary[i] / len(match_pattern))
     # print(new_dictionary[i])
     dict.update(new_dictionary)
      
     
-#     >>> books = {}
-# >>> books['book'] = 3       
-# >>> books['book'] -= 1   
-# >>> books   
-# {'book': 2} 
-# number_thing = 0
-# eight = 8
-# while number_thing < eight:
 
+#Turning the dictionary key and values into variables, allowing me to use them in numpy.random.choice
 new_dict_words = list(new_dictionary.keys())
 new_dict_weight = list(new_dictionary.values())
 
-# print(random.choices(list(new_dictionary)), list(int(new_dictionary[i])), k = 8)
-#     number_thing += 1
-    
-    
-# print(new_dictionary)
-# choice_list = np.random.choice(new_dict_words, 8, replace = True, p = new_dict_weight)
-# print(choice_list)
+#Similar to random.choice except that numpy works specifically with dictionaries, cycling through the key and their values(aka new_dict_weights)
+#choosing words based off the wait, versus being entirely random.
+choice_list = numpy.random.choice(new_dict_words, 8, replace = True, p = new_dict_weight)
+print(choice_list)
 
-# weighted_random_by_dct(new_dictionary)
+#Test the frequency of words in the example.txt file (fish should come out to about 4x more than any other)
 def frequency_test():
     i = 0
     blue = 0
@@ -77,7 +58,7 @@ def frequency_test():
     one = 0
 
     while i <= 10000:
-        selection = choice_list = np.random.choice(new_dict_words, 1, replace = True, p = new_dict_weight)
+        selection = choice_list = numpy.random.choice(new_dict_words, 1, replace = True, p = new_dict_weight)
         if 'blue' in selection:
             blue += 1
             i += 1
