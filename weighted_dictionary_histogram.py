@@ -38,3 +38,11 @@ def dictionary_test(histogram_dictionary):
             test_dictionary[selected_word] = 1
     return test_dictionary
     
+def file_open():
+    '''Opens and then returns the file.'''
+    with open('example.txt', 'r') as text:
+        # text_string = text.read().replace('\n', '').lower().split() #Not sure if .replace is necessary due to the regex
+        text_string = text.read().lower()
+        match_pattern = re.findall(r'\b[a-z]{1,15}\b', text_string)
+    return match_pattern
+    
