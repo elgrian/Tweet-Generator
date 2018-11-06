@@ -46,3 +46,9 @@ def file_open():
         match_pattern = re.findall(r'\b[a-z]{1,15}\b', text_string)
     return match_pattern
     
+if __name__ == "__main__":
+    text = file_open()
+    histo = histogram(text)
+    print(histo)
+    print(random_word(histo))
+    print(dictionary_test(histo))
