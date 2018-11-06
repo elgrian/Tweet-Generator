@@ -39,6 +39,6 @@ if __name__ == '__main__':
 
     histogram = histogramTuple('frankenstein.txt')
     print(histogram)
-
+    
 
 ###### Instead of doing that dumb shit read function, make it read once within the damn ass function bitch
