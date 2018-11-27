@@ -80,7 +80,11 @@ class LinkedList(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Create new node to hold given item
         # TODO: Prepend node before head, if it exists
-        
+        new_node = Node(item)
+        new_node.next = self.head
+        self.head = new_node
+        if self.tail is None: #linkedlist was empty before Prepend
+            self.tail = new_node # since linkedlist only has 1 item, it is the tail
         
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
@@ -89,10 +93,12 @@ class LinkedList(object):
         # TODO: Loop through all nodes to find item where quality(item) is True
         # TODO: Check if node's data satisfies given quality function
         node = self.head
-        quality = False
-        while node and quality is not True:
-            if quality(node.data) is true:
+        while node is not None:
+            if quality(node.data) is True:
                 return node.data
+            else:
+                node = node.next # reassigns the variable to iterate through the list
+                return None #item satisfying quality was never found
         
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
@@ -102,7 +108,20 @@ class LinkedList(object):
         # TODO: Update previous node to skip around node with matching data
         # TODO: Otherwise raise error to tell user that delete has failed
         # Hint: raise ValueError('Item not found: {}'.format(item))
-
+        previous_node = None
+        current_node = self.head
+        
+        while current_node.data is not None: # linked list isn't empty and current_node is not out of range
+            if current_node.data == item: #current_node is the same as item
+                if self.head == current_node:
+                    self.head = current_node.next #reassign head
+                else: #2nd node or later is a match
+                prev_node = current_node # keep track of previous node before moving to the next
+                current_node = current_node.next # iterate through the list
+                
+            raise ValueError('Item not found: {}'.format(item)) # did not find item
+            
+        
 
 def test_linked_list():
     ll = LinkedList()
